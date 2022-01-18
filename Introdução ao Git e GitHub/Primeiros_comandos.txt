@@ -1,0 +1,104 @@
+Comandos iniciais para git
+
+$git init -> defini a pasta logada no terminal como uma área de repositório git. Este comando não inclui os arquivos já existentes
+
+$git status -> mostra status do repositório acessado.
+
+$ git add <file> -> adicoina arquivo ao git
+
+$git add . -> adiciona todos os arquivos do diretório
+
+$git commit -m -> "lorem ipsum dolores set aremet"
+
+Quando iniciamos o repositório pelo git na pasta local utilizamos o seguinte comando para vincular ao git
+
+$ git remote add origin https://...
+
+Se por acaso não temos nenhum arquivo deste repositório, podemos baixá-lo na integra com o git clone
+$git clone https://
+
+
+para listar os repositórios
+
+$git remote -v
+
+Abaixo segue lista de códigos para administrar as branches do respositório
+Links úteis
+https://devhints.io/git-log
+https://git-scm.com/book/pt-br/v2/Fundamentos-de-Git-Gravando-Altera%C3%A7%C3%B5es-em-Seu-Reposit%C3%B3rio
+
+
+Branches
+ramificações do repositório, forma de salvar no github sem alterar o código principal
+
+
+$git checkout -b nova-branch
+$git commit -m "loren ipsun"
+
+O nome da branch deve ser o mais intuitivo possível
+
+Tag head
+
+aponta onde você está dentro do repositório (em qual branch)
+
+Para se movimentar entre as branches use o código
+$git checkout nomedabranch
+
+para unir a branch que se está trabalhando com a principal (main ou master)
+Para isso é necessário estar na branch principal
+$git merge nova-branch (seguindo  sequencia lógica destes códigos)
+
+
+arquivos não comitados se movem conforme vc muda de branch, nunca mude de branch sem comentar os arquivos.
+
+para subir um commit dentro de uma branch devemos colocar o nome da branch no código
+$git push origin nova-branch
+
+
+Comando para verificar em qual branch vc estar
+$git branch
+
+mudar nome de branch
+Dentro da branch nova-branch digitando o comando abaixo vira funcionalidade
+git branch -m funcionalidade
+
+Dentro da branch main para mudar o nome da nova-branch devemos usar
+git branch -m funcionalidade nova-branch
+
+para deletar uma branch o comando é
+git branch -d funcionalidade
+
+stash - vincula arquivos não comentados no stage area a branch que você está, desta forma você pode se mover entre a branchs
+
+git stash save "adicionado aquivos iniciando alteraçoes"
+
+git stash list - lista os arquivos salvos
+
+git stash pop 1 - faz o stash voltar para a branch
+
+para limpar o stash
+
+git stash clear
+
+Git Log - histórico do repositório
+
+git log --oneline ~ resume o histórico
+git log --graph
+
+gitk ~ abre uma interface gráfica com o histórico do repositório
+
+
+Códigos para manutenção de commits
+reverter commit
+git reset #do commit
+
+git reset HEAD-1  // volte o número de estágios informados após o HEAD
+
+git reset --soft // inverso do git add
+
+git restore --staged <file> // volta para unstage .... mesmo que o comando acima, mas este ainda está em teste
+
+git mixed HEAD-1 // move para o workin directory
+
+Para excluir todas as alterações realizadas, isso mesmo deletar arquivos e linhas
+git reset --hard HEAD-1
